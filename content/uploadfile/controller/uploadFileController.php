@@ -11,6 +11,7 @@ require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use \PhpOffice\PhpSpreadsheet\Shared\Date;
 
 
 if(isset($_FILES["file"]))
@@ -37,7 +38,9 @@ if(isset($_FILES["file"]))
             $valor1[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(1,$indiceFila);
             $valor2[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(2,$indiceFila);
             $valor3[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(3,$indiceFila);
-            $valor4[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(4,$indiceFila);
+            $excelTimestamp = $hojaActual->getCellByColumnAndRow(4,$indiceFila)->getValue();
+            $aux = Date::excelToDateTimeObject($excelTimestamp);
+            $valor4[$indiceFila-2] = $aux->format('Y-m-d');
             $valor5[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(5,$indiceFila);
             $valor6[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(6,$indiceFila); 
             $valor7[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(7,$indiceFila);
