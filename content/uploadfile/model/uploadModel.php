@@ -18,13 +18,17 @@ function uploadFileTemp($year, $semana, $mes, $fecha, $objetivo, $status, $herra
     $result = mysqli_query($conection, $sqlUpload);
 
 
-    return "temp=" . $result;
+    return "result=" . $string;
 }
 
 function uploadFile($mexico, $chile, $ecuador, $latam, $programa)
 {
 
     include "../../../model/conection.php";
+    $resultmx = '';
+    $resultch = '';
+    $resultec = '';
+    $resultltm = '';
     if ($mexico == true) {
 
         $sqlUpdatePais = "UPDATE `dbcontenidoredes` SET `pais`='Mexico' WHERE 1";
@@ -73,7 +77,7 @@ function uploadFile($mexico, $chile, $ecuador, $latam, $programa)
     $sqlTruncate = "TRUNCATE TABLE `dbcontenidoredes`";
     $resultsql = mysqli_query($conection, $sqlTruncate);
 
-    return "mx=" . $datemx . " ch=" . $resultch . " ec=" . $resultec . " latam=" . $resultltm;
+    return "mx=" . $resultmx . " ch=" . $resultch . " ec=" . $resultec . " latam=" . $resultltm;
 }
 
 function searchDate($programa, $pais)
