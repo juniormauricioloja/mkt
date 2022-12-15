@@ -46,7 +46,7 @@ function uploadfile(){
     $.ajax({
         type: "POST",
         data:cadena,
-        url:"controller/uploadFileController.php",
+        url:"controller/uploadController.php",
         beforeSend:function(xhr){
             $("#ajaxBusy").show();
         },

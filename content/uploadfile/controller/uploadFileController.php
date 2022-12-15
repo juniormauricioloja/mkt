@@ -69,15 +69,5 @@ if(isset($_FILES["file"]))
     }
 }
 
-$aux = $_POST["aux"];
 
-if($aux == "uploadFile"){
-    $mexico = $_POST["mx"];
-    $chile =  $_POST["ch"];
-    $ecuador =  $_POST["ec"];
-    $latam = $_POST["latam"];
-    $programa = $_POST["programa"];
-    $resultado = uploadFile($mexico,$chile,$ecuador,$latam,$programa);
-    echo $resultado;
-}
 ?>
