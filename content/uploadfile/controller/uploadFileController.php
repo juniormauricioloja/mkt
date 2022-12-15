@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+ini_set('display_startup_errors', 1);
+ini_set('display_errors', 1);
+error_reporting(-1);
+
 include "../model/uploadModel.php";
 require 'vendor/autoload.php';
 
@@ -51,8 +55,12 @@ if(isset($_FILES["file"]))
             $valor19[$indiceFila-2]= $hojaActual->getCellByColumnAndRow(19,$indiceFila);
             $valor20[$indiceFila-2]= $hojaActual->getCellByColumnAndRow(20,$indiceFila);
             $valor21[$indiceFila-2]= $hojaActual->getCellByColumnAndRow(21,$indiceFila);
-            
-
+            $facebook[$indiceFila-2]=0;
+            $instagram[$indiceFila-2]=0;
+            $tiktok[$indiceFila-2]=0;
+            $linkedin[$indiceFila-2]=0;
+            $otros[$indiceFila-2]=0;
+            $redes = explode("/",$valor9[$indiceFila-2]);
         }
 
         $uploadFile = uploadFileTemp($valor1,$valor2,$valor3,$valor4,$valor5,$valor6,$valor7,$valor8,$valor9,$valor10,$valor11,$valor12,$valor13,$valor14,$valor15,$valor16
