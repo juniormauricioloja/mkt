@@ -53,7 +53,7 @@ function uploadfile(){
         success:function(data){
             if(data){
                 success_noti("Archivo subido");
-                //window.location.href="../../index.php";
+                window.location.href="../../index.php";
                 console.log(data)
             }else{
                 error_noti("Error al cargar el archivo");
