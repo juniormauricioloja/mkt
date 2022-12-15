@@ -41,7 +41,7 @@ $windows = stripos($so, "Windows");
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
-    <script src="js/index.js" type="text/javascript"></script>
+    <script src="js/index1.js" type="text/javascript"></script>
 </head>
 
 <body>
