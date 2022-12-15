@@ -5,15 +5,15 @@ function uploadFileTemp($year, $semana, $mes, $fecha, $objetivo, $status, $herra
 
     include "../../../model/conection.php";
 
-    $string = "('$year[0]','$semana[0]','$mes[0]','$fecha[0]', '$objetivo[0]','$status[0]','$herramienta[0]','$colaboracion[0]','$redsocial[0]','$topico[0]','$post[0]','$contenido[0]','$linkblog[0]','$linkrrss[0]','$linkweb[0]','$linkform[0]','$youtube[0]','$arte[0]','$logo[0]','$comentarios[0]','$responsable[0]')";
+    $string = "('$year[0]','$mes[0]','$semana[0]', '$fecha[0]','','$objetivo[0]','$herramienta[0]','$colaboracion[0]','$post[0]','$contenido[0]','$redsocial[0]','$topico[0]','','','','','','$linkblog[0]','$linkrrss[0]','$linkweb[0]','$linkform[0]','$youtube[0]','$arte[0]','$logo[0]','$comentarios[0]','','','','','','','','$status[0]','$responsable[0]')";
 
     for ($i = 1; $i < $numeroFilas - 1; $i++) {
         if ($year[$i] != '' && $semana[$i] != '' && $mes[$i] != '') {
-            $string = $string . ",('$year[$i]','$semana[$i]','$mes[$i]','$fecha[$i]', '$objetivo[$i]','$status[$i]','$herramienta[$i]','$colaboracion[$i]','$redsocial[$i]','$topico[$i]','$post[$i]','$contenido[$i]','$linkblog[$i]','$linkrrss[$i]','$linkweb[$i]','$linkform[$i]','$youtube[$i]','$arte[$i]','$logo[$i]','$comentarios[$i]','$responsable[$i]')";
+            $string = $string . ",('$year[$i]','$mes[$i]','$semana[$i]', '$fecha[$i]','','$objetivo[$i]','$herramienta[$i]','$colaboracion[$i]','$post[$i]','$contenido[$i]','$redsocial[$i]','$topico[$i]','','','','','','$linkblog[$i]','$linkrrss[$i]','$linkweb[$i]','$linkform[$i]','$youtube[$i]','$arte[$i]','$logo[$i]','$comentarios[$i]','','','','','','','','$status[$i]','$responsable[$i]')";
         }
     }
 
-    $sqlUpload = "INSERT INTO `dbcontenidoredes`(`year`, `semana`, `mes`, `fecha`, `objetivo`, `status`, `herramienta`, `colaboracion`, `redsocial`, `topico`,`post`, `contenido`,  `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `responsable`)
+    $sqlUpload = "INSERT INTO `dbcontenidoredes`(`year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`, `topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
     VALUES $string";
     $result = mysqli_query($conection, $sqlUpload);
 
