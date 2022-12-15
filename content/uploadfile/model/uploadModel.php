@@ -1,20 +1,20 @@
 <?php
 
-function uploadFileTemp($valor1, $valor2, $valor3, $valor4, $valor5, $valor6, $valor7, $valor8, $valor9, $valor10, $valor11, $valor12, $valor13, $valor14, $valor15, $valor16, $valor17, $valor18, $valor19, $valor20, $valor21, $numeroFilas)
+function uploadFileTemp($year, $semana, $mes, $fecha, $objetivo, $status, $herramienta, $colaboracion, $redsocial, $topico, $post, $contenido, $linkblog, $linkrrss, $linkweb, $linkform, $youtube, $arte, $logo, $comentarios,  $responsable, $numeroFilas)
 {
 
     include "../../../model/conection.php";
 
-    $string = "('$valor1[0]','$valor2[0]','$valor3[0]','$valor4[0]', '$valor5[0]','$valor6[0]','$valor7[0]','$valor8[0]','$valor9[0]','$valor10[0]','$valor11[0]','$valor12[0]','$valor13[0]','$valor14[0]','$valor15[0]','$valor16[0]','$valor17[0]','$valor18[0]','$valor19[0]','$valor20[0]','$valor21[0]')";
+    $string = "('$year[0]','$semana[0]','$mes[0]','$fecha[0]', '$objetivo[0]','$status[0]','$herramienta[0]','$colaboracion[0]','$redsocial[0]','$topico[0]','$post[0]','$contenido[0]','$linkblog[0]','$linkrrss[0]','$linkweb[0]','$linkform[0]','$youtube[0]','$arte[0]','$logo[0]','$comentarios[0]','$responsable[0]')";
 
     for ($i = 1; $i < $numeroFilas - 1; $i++) {
-        if ($valor1[$i] != '' && $valor2[$i] != '' && $valor3[$i] != '') {
-            $string = $string . ",('$valor1[$i]','$valor2[$i]','$valor3[$i]','$valor4[$i]','$valor5[$i]','$valor6[$i]','$valor7[$i]','$valor8[$i]','$valor9[$i]','$valor10[$i]','$valor11[$i]','$valor12[$i]','$valor13[$i]','$valor14[$i]','$valor15[$i]','$valor16[$i]','$valor17[$i]','$valor18[$i]','$valor19[$i]','$valor20[0]','$valor21[0]')";
+        if ($year[$i] != '' && $semana[$i] != '' && $mes[$i] != '') {
+            $string = $string . ",('$year[$i]','$semana[$i]','$mes[$i]','$fecha[$i]', '$objetivo[$i]','$status[$i]','$herramienta[$i]','$colaboracion[$i]','$redsocial[$i]','$topico[$i]','$post[$i]','$contenido[$i]','$linkblog[$i]','$linkrrss[$i]','$linkweb[$i]','$linkform[$i]','$youtube[$i]','$arte[$i]','$logo[$i]','$comentarios[$i]','$responsable[$i]')";
         }
     }
 
     $sqlUpload = "INSERT INTO `dbcontenidoredes`(`year`, `semana`, `mes`, `fecha`, `objetivo`, `status`, `herramienta`, `colaboracion`, `redsocial`, `topico`,`post`, `contenido`,  `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `responsable`)
-VALUES $string";
+    VALUES $string";
     $result = mysqli_query($conection, $sqlUpload);
 
 

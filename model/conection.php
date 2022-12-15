@@ -1,9 +1,14 @@
 <?php
 
-   
-   $host='localhost';
-    $user2='grupocon_gledDemo';
-    $password2=',#v92{G8^c{*';
-    $db='grupocon_gled';
+$host='localhost';
+$user2='gledsistema';
+$password2='gledcrm2022';
+$db='gled';
+/*
+$host='localhost';
+$user2='root';
+$password2='';
+$db='gled';
+*/
 
-    $conection=@mysqli_connect("localhost", "root", "", "gled");
+$conection=mysqli_connect($host,$user2,$password2,$db);
