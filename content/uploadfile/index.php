@@ -109,6 +109,9 @@ $windows = stripos($so, "Windows");
                                                     <option value="educa">Educa</option>
                                                     <option value="languages">Languages</option>
                                                     <option value="gled">GLED</option>
+                                                    <option value="letstalk">Let's Talk</option>
+                                                    <option value="enrollu">Enroll U</option>
+                                                    <option value="kaplan">Kaplan Medical</option>
                                                 </select>
                                             </div>
 
