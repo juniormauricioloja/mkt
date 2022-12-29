@@ -57,6 +57,12 @@ $windows = stripos($so, "Windows");
                     <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center">
                         <h2 class="h4">CONTENIDO REDES GLED</h2>
                     </div>
+                    <div class="d-flex justify-content-end flex-wrap flex-md-nowrap align-items-center">
+                        <a class="btn btn btn-sm btn-outline-primary" role="button" href="download.php?download_csv=1">
+                            <span><i class="bi bi-download"> </i></span>
+                            Descargar Plantilla
+                        </a>
+                    </div>
 
                     <div class="row">
                         <div class="col-16">
@@ -142,7 +148,7 @@ $windows = stripos($so, "Windows");
                             Ingresar Formulario
                         </a>
 
-                       
+
 
                     </div>
                 </div>
