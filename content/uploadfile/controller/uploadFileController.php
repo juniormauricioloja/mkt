@@ -38,7 +38,7 @@ if(isset($_FILES["file"]))
             $excelTimestamp = $hojaActual->getCellByColumnAndRow(1,$indiceFila)->getValue();
             $aux = Date::excelToDateTimeObject($excelTimestamp);
             $valor1[$indiceFila-2] = $aux->format('Y-m-d');
-            $valor2[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(2,$indiceFila);
+            $valor2[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(2,$indiceFila)->getCalculatedValue();
             $valor3[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(3,$indiceFila);
             $valor4[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(4,$indiceFila);
             $valor5[$indiceFila-2] = $hojaActual->getCellByColumnAndRow(5,$indiceFila);
