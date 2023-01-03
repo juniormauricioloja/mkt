@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['download_csv'])) {
-    $file_example = 'Plantilla_Redes_Gled.xlsx';
+    $file_example = 'Plantilla_Redes.xlsx';
     if (file_exists($file_example)) {
         header('Content-Description: File Transfer');
         header('Content-Type: text/csv');

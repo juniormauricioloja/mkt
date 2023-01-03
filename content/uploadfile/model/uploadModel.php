@@ -1,19 +1,19 @@
 <?php
 
-function uploadFileTemp($year, $semana, $mes, $fecha, $objetivo, $status, $herramienta, $colaboracion, $redsocial, $topico, $post, $contenido, $linkblog, $linkrrss, $linkweb, $linkform, $youtube, $arte, $logo, $comentarios,  $responsable, $numeroFilas)
+function uploadFileTemp($fecha, $semana, $objetivo, $status, $herramienta, $colaboracion, $redsocial, $topico, $post, $contenido, $linkblog, $linkrrss, $linkweb, $linkform, $youtube, $arte, $logo, $comentarios,  $responsable, $numeroFilas)
 {
 
     include "../../../model/conection.php";
 
-    $string = "('$year[0]','$mes[0]','$semana[0]', '$fecha[0]','','$objetivo[0]','$herramienta[0]','$colaboracion[0]','$post[0]','$contenido[0]','$redsocial[0]','$topico[0]','','','','','','$linkblog[0]','$linkrrss[0]','$linkweb[0]','$linkform[0]','$youtube[0]','$arte[0]','$logo[0]','$comentarios[0]','','','','','','','','$status[0]','$responsable[0]')";
+    $string = "('$fecha[0]','$semana[0]','','$objetivo[0]','$herramienta[0]','$colaboracion[0]','$post[0]','$contenido[0]','$redsocial[0]','$topico[0]','','','','','','$linkblog[0]','$linkrrss[0]','$linkweb[0]','$linkform[0]','$youtube[0]','$arte[0]','$logo[0]','$comentarios[0]','','','','','','','','$status[0]','$responsable[0]')";
 
     for ($i = 1; $i < $numeroFilas - 1; $i++) {
-        if ($year[$i] != '' && $semana[$i] != '' && $mes[$i] != '') {
-            $string = $string . ",('$year[$i]','$mes[$i]','$semana[$i]', '$fecha[$i]','','$objetivo[$i]','$herramienta[$i]','$colaboracion[$i]','$post[$i]','$contenido[$i]','$redsocial[$i]','$topico[$i]','','','','','','$linkblog[$i]','$linkrrss[$i]','$linkweb[$i]','$linkform[$i]','$youtube[$i]','$arte[$i]','$logo[$i]','$comentarios[$i]','','','','','','','','$status[$i]','$responsable[$i]')";
+        if ($fecha[$i] != '') {
+            $string = $string . ",('$fecha[$i]','$semana[$i]','','$objetivo[$i]','$herramienta[$i]','$colaboracion[$i]','$post[$i]','$contenido[$i]','$redsocial[$i]','$topico[$i]','','','','','','$linkblog[$i]','$linkrrss[$i]','$linkweb[$i]','$linkform[$i]','$youtube[$i]','$arte[$i]','$logo[$i]','$comentarios[$i]','','','','','','','','$status[$i]','$responsable[$i]')";
         }
     }
 
-    $sqlUpload = "INSERT INTO `dbcontenidoredes`(`year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`, `topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
+    $sqlUpload = "INSERT INTO `dbcontenidoredes`(`fecha`,`semana`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`, `topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
     VALUES $string";
     $result = mysqli_query($conection, $sqlUpload);
 
@@ -36,8 +36,8 @@ function uploadFile($mexico, $chile, $ecuador, $latam, $programa)
 
         $date=searchDate($programa,"Mexico");
 
-        $sqlInsertmx = "INSERT INTO dbcontenidoredes". $programa . "(`year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
-        SELECT `year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial` ,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable` FROM dbcontenidoredes WHERE `fecha`>='$date'";
+        $sqlInsertmx = "INSERT INTO dbcontenidoredes". $programa . "(`fecha`, `semana`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
+        SELECT `fecha`, `semana`,  `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial` ,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable` FROM dbcontenidoredes WHERE `fecha`>='$date'";
         $resultmx = mysqli_query($conection, $sqlInsertmx);
     }
     if ($chile == true) {
@@ -48,8 +48,8 @@ function uploadFile($mexico, $chile, $ecuador, $latam, $programa)
 
         $date=searchDate($programa,"Chile");
 
-        $sqlInsertch = "INSERT INTO dbcontenidoredes" . $programa . "(`year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`, `topico`,`facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
-        SELECT `year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable` FROM dbcontenidoredes WHERE `fecha`>='$date'";
+        $sqlInsertch = "INSERT INTO dbcontenidoredes" . $programa . "(`fecha`, `semana`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`, `topico`,`facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
+        SELECT `fecha`, `semana`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable` FROM dbcontenidoredes WHERE `fecha`>='$date'";
         $resultch = mysqli_query($conection, $sqlInsertch);
     }
     if ($ecuador == true) {
@@ -59,8 +59,8 @@ function uploadFile($mexico, $chile, $ecuador, $latam, $programa)
 
         $date=searchDate($programa,"Ecuador");
 
-        $sqlInsertec = "INSERT INTO dbcontenidoredes" . $programa . "(`year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
-         SELECT `year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable` FROM dbcontenidoredes WHERE `fecha`>='$date'";
+        $sqlInsertec = "INSERT INTO dbcontenidoredes" . $programa . "(`fecha`, `semana`,  `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
+         SELECT `fecha`, `semana`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable` FROM dbcontenidoredes WHERE `fecha`>='$date'";
         $resultec = mysqli_query($conection, $sqlInsertec);
     }
     if ($latam == true) {
@@ -70,8 +70,8 @@ function uploadFile($mexico, $chile, $ecuador, $latam, $programa)
 
         $date=searchDate($programa,"Latam");
 
-        $sqlInsertltm = "INSERT INTO dbcontenidoredes" . $programa . "(`year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
-         SELECT `year`, `mes`, `semana`, `fecha`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial` ,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable` FROM dbcontenidoredes WHERE `fecha`>='$date'";
+        $sqlInsertltm = "INSERT INTO dbcontenidoredes" . $programa . "(`fecha`, `semana`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial`,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable`) 
+         SELECT `fecha`, `semana`, `pais`, `objetivo`, `herramienta`, `colaboracion`, `post`, `contenido`, `redsocial` ,`topico`, `facebook`, `instagram`, `tiktok`, `linkedin`, `otros`, `linkblog`, `linkrrss`, `linkweb`, `linkform`, `linkyoutube`, `arte`, `logos`, `comentario`, `alcance`, `megusta`, `compartir`, `punt_alcance`, `punt_megusta`, `punt_compartir`, `puntuacion`, `status`, `responsable` FROM dbcontenidoredes WHERE `fecha`>='$date'";
         $resultltm = mysqli_query($conection, $sqlInsertltm);
     }
     $sqlTruncate = "TRUNCATE TABLE `dbcontenidoredes`";
