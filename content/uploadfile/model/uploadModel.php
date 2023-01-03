@@ -8,7 +8,7 @@ function uploadFileTemp($fecha, $semana, $objetivo, $status, $herramienta, $cola
     $string = "('$fecha[0]','$semana[0]','','$objetivo[0]','$herramienta[0]','$colaboracion[0]','$post[0]','$contenido[0]','$redsocial[0]','$topico[0]','','','','','','$linkblog[0]','$linkrrss[0]','$linkweb[0]','$linkform[0]','$youtube[0]','$arte[0]','$logo[0]','$comentarios[0]','','','','','','','','$status[0]','$responsable[0]')";
 
     for ($i = 1; $i < $numeroFilas - 1; $i++) {
-        if ($fecha[$i] != '') {
+        if ($objetivo[$i] != '' || $status[$i] != '') {
             $string = $string . ",('$fecha[$i]','$semana[$i]','','$objetivo[$i]','$herramienta[$i]','$colaboracion[$i]','$post[$i]','$contenido[$i]','$redsocial[$i]','$topico[$i]','','','','','','$linkblog[$i]','$linkrrss[$i]','$linkweb[$i]','$linkform[$i]','$youtube[$i]','$arte[$i]','$logo[$i]','$comentarios[$i]','','','','','','','','$status[$i]','$responsable[$i]')";
         }
     }
