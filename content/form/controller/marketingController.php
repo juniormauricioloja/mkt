@@ -9,10 +9,9 @@ $chile = $_POST["chile"];
 $ecuador = $_POST["ecuador"];
 $latam = $_POST["latam"];
 
-$year = $_POST["year"];
+
 $semana = $_POST["semana"];
-$mes = $_POST["mes"];
-$dia = $_POST["dia"];
+$fecha = $_POST["dia"];
 
 $programa = $_POST["programa"];
 $objetivo = $_POST["objetivo"];
@@ -39,7 +38,7 @@ $comentarios = $_POST["comentarios"];
 $responsable = $_POST["responsable"];
 $status = $_POST["status"];
 
-  $result = insertMkt($year, $semana, $mes, $dia, $programa, $objetivo, $herramienta, $colaboracion, $topico, $post, $contenido, 
+  $result = insertMkt($fecha,$semana, $programa, $objetivo, $herramienta, $colaboracion, $topico, $post, $contenido, 
   $facebook, $instagram,$tiktok,$linkedin,$otros,$linkBlog,$linkRRSS,$linkWeb,$linkForm,$linkYoutube,$arte,$logo,$comentarios,$responsable,
   $mexico,$chile,$ecuador,$latam,$redes,$status);
 

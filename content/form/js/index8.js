@@ -31,10 +31,10 @@ const save = () => {
     if (document.getElementById('ecuador').checked){ecuador = 1};
     if (document.getElementById('latam').checked){latam = 1};
 
-    let year=document.getElementById("year").value;
+
     let semana=document.getElementById("semana").value;
-    let mes=document.getElementById("mes").value;
-    let dia=document.getElementById("dia").value;
+
+    let dia=document.getElementById("fecha").value;
 
     let programa=document.getElementById("programa").value;
     let objetivo=document.getElementById("objetivo").value;
@@ -80,7 +80,7 @@ const save = () => {
     console.log(responsable);
 
 
-    var cadena = "aux=save&year=" + year + "&semana=" + semana + "&mes="+mes+"&dia="+dia+"&programa=" + programa + "&objetivo="+ objetivo
+    var cadena = "aux=save&semana=" + semana + "&dia="+dia+"&programa=" + programa + "&objetivo="+ objetivo
     +"&herramienta="+herramienta+"&colaboracion="+colaboracion+"&topico="+topico + "&post=" + post + "&contenido=" + contenido +
     "&facebook=" + facebook +"&instagram=" + instagram +"&tiktok=" + tiktok +"&linkedin=" + linkedin +"&otros=" + otros +"&redes="+redes+
     "&linkBlog=" + linkBlog +"&linkRRSS=" + linkRRSS +"&linkWeb=" + linkWeb +"&linkForm=" + linkForm + "&linkYoutube=" + linkYoutube +"&arte=" 

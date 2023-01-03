@@ -101,28 +101,12 @@ $windows = stripos($so, "Windows");
                                             </div>
                                         </div>
                                         <div class="form-row mb-3">
-                                            <div class="col-2">
-                                                <label for="" class="form-control-label">Año</label>
-                                                <input type="text" id="year" class="form-control from-control-lg">
+
+                                        <div class="col-2">
+                                                <label for="" class="form-control-label">Fecha</label>
+                                                <input type="date" id="fecha" class="form-control from-control-lg">
                                             </div>
-                                            <div class="col-2">
-                                                <label for="" class="form-control-label">Mes</label>
-                                                <select name="" id="mes" class="form-control from-control-lg">
-                                                    <option value="">---Seleccione Mes---</option>
-                                                    <option value="Enero">Enero</option>
-                                                    <option value="Febrero">Febrero</option>
-                                                    <option value="Marzo">Marzo</option>
-                                                    <option value="Abril">Abril</option>
-                                                    <option value="Mayo">Mayo</option>
-                                                    <option value="Junio">Junio</option>
-                                                    <option value="Julio">Julio</option>
-                                                    <option value="Agosto">Agosto</option>
-                                                    <option value="Septiembre">Septiembre</option>
-                                                    <option value="Octubre">Octubre</option>
-                                                    <option value="Noviembre">Noviembre</option>
-                                                    <option value="Diciembre">Diciembre</option>
-                                                </select>
-                                            </div>
+                                            
                                             <div class="col-2">
                                                 <label for="" class="form-control-label">Semana</label>
                                                 <select name="" id="semana" class="form-control from-control-lg">
@@ -137,10 +121,7 @@ $windows = stripos($so, "Windows");
                                                     ?>
                                                 </select>
                                             </div>
-                                            <div class="col-2">
-                                                <label for="" class="form-control-label">Día</label>
-                                                <input type="date" id="dia" class="form-control from-control-lg">
-                                            </div>
+                                            
                                             <div class="col">
                                                 <label for="" class="form-control-label">Programa</label>
                                                 <select name="" id="programa" class="form-control from-control-lg">
@@ -150,6 +131,8 @@ $windows = stripos($so, "Windows");
                                                     <option value="languages">Languages</option>
                                                     <option value="hey">Hey</option>
                                                     <option value="gled">GLED</option>
+                                                    <option value="letstalk">Let's Talk</option>
+                                                    <option value="enrollu">Enroll U</option>
                                                 </select>
                                             </div>
                                         </div>
