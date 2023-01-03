@@ -333,7 +333,11 @@ $windows = stripos($so, "Windows");
                                                 <select name="" id="responsable" class="form-control from-control-lg">
                                                     <option value="">---Seleccione Responsable---</option>
                                                     <option value="Agencia de Diseño">Agencia de Diseño</option>
-                                                    <option value="Marketing">Marketing</option>
+                                                    <option value="Marketing">Marketing Team</option>
+                                                    <option value="Mexico">México</option>
+                                                    <option value="Chile">Chile</option>
+                                                    <option value="Ecuador">Ecuador</option>
+                                                    <option value="Latam">Latam</option>
                                                 </select>
                                             </div>
 
